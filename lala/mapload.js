@@ -22,20 +22,20 @@ function loadCompanies(comps){
 	var regStyle = {
 		color:"green",
 		fillOpacity: 0.5,
-		radius: 8
+		radius: 10
 	}
 	var hoverStyle = {
 		color:"green",
 		fillOpacity: 0.9,
-		radius: 10
+		radius: 12
 	}
-	var markers = L.markerClusterGroup({showCoverageOnHover: false, spiderfyDistanceMultiplier:1.5, zoomToBoundsOnClick: false});
+	var markers = L.markerClusterGroup({showCoverageOnHover: false, spiderfyDistanceMultiplier:2, zoomToBoundsOnClick: false});
 	for (i=0;i<comps.records.length;i++){
 		console.log(comps.records[i].CompanyName);
 		regStyle.title = comps.records[i].CompanyName
 		var marker = L.circleMarker([comps.records[i].Lat,comps.records[i].Lng],regStyle)
 			.bindPopup(
-				"<h2>"+comps.records[i].CompanyName+"</h2><p><a href='"+comps.records[i].Website+"'>"+comps.records[i].Website+"</a></p>"
+				"<h2>"+comps.records[i].CompanyName+"</h2><p><a href='"+comps.records[i].Website+"'>"+comps.records[i].Website.split("//")[1]+"</a></p>"
 			)
 			.on("mouseover",function(){
 				this.setStyle(hoverStyle)
