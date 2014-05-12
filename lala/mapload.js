@@ -4,8 +4,7 @@ var dHash = window.location.hash.replace("#","").split("/");
 var layer = new L.StamenTileLayer(dHash[0]);
 
 var map = L.map('map_canvas',{
-	layers: layer,
-	maxZoom: 8
+	layers: layer
 }).setView([dHash[1], dHash[2]], dHash[3]);
 map.on("moveend",function(){
 	var hVal = "#"+dHash[0]+"/"+""+map.getCenter().toString().replace("LatLng(","").replace(")","").replace(", ","/")+"/"+map.getZoom();
@@ -29,7 +28,7 @@ function loadCompanies(comps){
 		fillOpacity: 0.9,
 		radius: 12
 	}
-	var markers = L.markerClusterGroup({showCoverageOnHover: false, spiderfyDistanceMultiplier:2, zoomToBoundsOnClick: false});
+	var markers = L.markerClusterGroup({showCoverageOnHover: false, spiderfyDistanceMultiplier:2, zoomToBoundsOnClick: false, maxClusterRadius:40});
 	for (i=0;i<comps.records.length;i++){
 		console.log(comps.records[i].CompanyName);
 		regStyle.title = comps.records[i].CompanyName
