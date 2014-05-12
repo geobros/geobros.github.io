@@ -3,11 +3,8 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <title>SLR with HTML-5 Image Tiles</title>
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
-<!--<link href="css/bootstrap.css" rel="stylesheet">-->
- <!--[if lte IE 8]>
-     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
- <![endif]-->
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
 <style type="text/css">
 	html { height: 100%; width: 100%}
 	body {
@@ -23,9 +20,12 @@
 	}
 	
 </style>
-<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
 <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+ <script src="googleFusionTableTools.js"></script>
+ 	<link rel="stylesheet" href="dist/MarkerCluster.css" />
+	<link rel="stylesheet" href="dist/MarkerCluster.Default.css" />
+	<script src="dist/leaflet.markercluster-src.js"></script>
 </head>
 <body>
 	<div id="map_canvas"></div>
