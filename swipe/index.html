@@ -34,16 +34,24 @@
         maxBounds: [[37.8,-122.45],[37.2,-121.6]]
     });
 
-    var docHash = window.location.hash;
+    var docHash = window.location.hash.replace('#','').split('/');
 
-    if (docHash.length !== 0) {
-      console.log('some');
+    if (docHash.length !== 2) {
+      var mapURLs = {
+        base: 'daraobeirne.h583hap5',
+        overlay: 'daraobeirne.gjxj38fr'
+      }
     } else {
-      console.log('ed');
+      var mapURLs = {
+        base: docHash[0],
+        overlay: docHash[1]
+      }
     }
 
-    var baseLayer = L.mapbox.tileLayer('daraobeirne.h583hap5').addTo(map);
-    var overlay = L.mapbox.tileLayer('daraobeirne.gjxj38fr').addTo(map);
+    console.log(mapURLs);
+
+    var baseLayer = L.mapbox.tileLayer(mapURLs.base).addTo(map);
+    var overlay = L.mapbox.tileLayer(mapURLs.overlay).addTo(map);
 
     var range = document.getElementById('range');
 
